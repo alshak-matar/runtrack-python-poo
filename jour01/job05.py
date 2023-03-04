@@ -21,7 +21,7 @@ class Point:
         
         
         
-    def replaycerX(self, x):
+    def replayceX(self, x):
         self.x = x
         print(self.x)
         
@@ -29,7 +29,7 @@ class Point:
         
         
         
-    def replaycerY(self, y):
+    def replayceY(self, y):
         self.y = y
         print(self.y)
 
@@ -39,5 +39,5 @@ note = Point(21, 11)
 note.displaypoints()
 note.displayX()
 note.displayY()
-note.replaycerX(35)
-note.replaycerY(34)
+note.replayceX(35)
+note.replayceY(34)
