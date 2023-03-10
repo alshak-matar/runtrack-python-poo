@@ -1,30 +1,42 @@
-#most of time I don't understand the instruction in french
-#that why i prefer to write everything in english
+class Ville:
+    def __init__(self, nom, nb_habitants):
+        self.nom = nom
+        self.nb_habitants = nb_habitants
 
-class City():
-  def __init__(self, name,numberOfResident):
-    self.name = name
-    self.numberOfResident = numberOfResident
-    def get_name(self):
-      return self.name
-    def get_numberOfResident(self):
-      return self.numberOfResident
-class Persone():
-  def __init--(self, name, age, city):
-    self.name = name
-    self.age = age
-    self.city = city
-  def resident(self):
-    self.city.numberOfResident += 1
-city1 : city("NEW YORK", 10000000)
-city2 : city("MIAMI", 5000000)
-print(city1.get_numberOfResident())
-print(city2.get_numberOfResident())
-persone1 = Persone("George", 35, city1)
-persone2 = Persone("Danisse", 5, city1)
-persone3 = Persone("Sara", 15, city2)
-persone1.resident()
-persone2.resident()
-persone3.resident()
-print(city1.get_numberOfResident())
-print(city2.get_numberOfResident())
+    def get_nom(self):
+        return self.nom
+
+    def get_nb_habitants(self):
+        return self.nb_habitants
+
+    def set_nb_habitants(self, nb_habitants):
+        self.nb_habitants = nb_habitants
+
+
+class Personne:
+    def __init__(self, nom, age, ville):
+        self.nom = nom
+        self.age = age
+        self.ville = ville
+
+    def ajouterPopulation(self):
+        self.ville.set_nb_habitants(self.ville.get_nb_habitants() + 1)
+
+
+ville_paris = Ville("Paris", 1000000)
+print("Nombre d'habitants de la ville de", ville_paris.get_nom(), ":", ville_paris.get_nb_habitants())
+
+ville_marseille = Ville("Marseille", 861635)
+print("Nombre d'habitants de la ville de", ville_marseille.get_nom(), ":", ville_marseille.get_nb_habitants())
+
+john = Personne("John", 45, ville_paris)
+john.ajouterPopulation()
+print("Nombre d'habitants de la ville de", ville_paris.get_nom(), "après l'ajout de John :", ville_paris.get_nb_habitants())
+
+myrtille = Personne("Myrtille", 4, ville_paris)
+myrtille.ajouterPopulation()
+print("Nombre d'habitants de la ville de", ville_paris.get_nom(), "après l'ajout de Myrtille :", ville_paris.get_nb_habitants())
+
+chloe = Personne("Chloé", 18, ville_marseille)
+chloe.ajouterPopulation()
+print("Nombre d'habitants de la ville de", ville_marseille.get_nom(), "après l'ajout de Chloé :", ville_marseille.get_nb_habitants())
