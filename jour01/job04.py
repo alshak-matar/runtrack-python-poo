@@ -1,12 +1,14 @@
-class Persone():
+class Personne:
+    def __init__(self, nom, pernom):
+        self.nom = nom
+        self.pernom = pernom
 
-    def __init__(self, second_name, first_name):
-        self.first_name = first_name 
-        self.second_name = second_name
-    def persention(self):
-        print("I'm", self.first_name,self.second_name)
-persone1 = Persone("Jhon", "Doe")
-persone2 = Persone("Jean", "Dupond")
 
-persone1.persention()
-persone2.persention()
+    def sePersenter(self):
+        print("je suis  " + self.nom)
+        print("je suis " + self.pernom)
+    
+    
+    
+nom_pernom = Personne("John Doe", "Jean Dupond")
+nom_pernom.sePersenter()
