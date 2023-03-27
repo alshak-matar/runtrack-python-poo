@@ -1,57 +1,45 @@
 #JOB07
-class Personnage:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+class Livre:
+    def __init__(self, titre, auteur, nb_pages):
+        self.titre = titre
+        self.auteur = auteur
+        self.nb_pages = nb_pages
+    
+    def get_titre(self):
+        return self.titre
+    
+    def set_titre(self, titre):
+        self.titre = titre
+    
+    def get_auteur(self):
+        return self.auteur
+    
+    def set_auteur(self, auteur):
+        self.auteur = auteur
+    
+    def get_nb_pages(self):
+        return self.nb_pages
+    
+    def set_nb_pages(self, nb_pages):
+        if isinstance(nb_pages, int) and nb_pages > 0:
+            self.nb_pages = nb_pages
+        else:
+            print("Erreur! le nombre de pages doit être un entier positif")
 
-    def gauche(self):
-        self.x -= 1
-        
-        
-        
-    def droite(self):
-        self.x += 1
-        
-        
-        
-        
-        
-    def haut(self):
-        self.y += 1
-        
-        
-        
-        
-        
-    def bas(self):
-        self.y -= 1
-        
-        
-        
-        
-        
-        
-        
-    def position(self):
-        tuple_position = (self.x , self.y)
-        return tuple_position
-
-mouvement = Personnage(1,1)
-mouvement.gauche()
+mon_livre = Livre("Get Riche", " Tolkien", 10000)
 
 
-print(mouvement.position())
-mouvement.droite()
+print("Titre :", mon_livre.get_titre())
+print("Auteur :", mon_livre.get_auteur())
+print("Nombre de pages :", mon_livre.get_nb_pages())
 
 
+mon_livre.set_nb_pages(12000)
 
 
-print(mouvement.position())
-mouvement.haut()
+print("Nombre de pages modifié :", mon_livre.get_nb_pages())
 
 
+mon_livre.set_nb_pages("10000")
 
-print(mouvement.position())
-mouvement.bas()
-
-print(mouvement.position())
+print("Nombre de pages inchangé :", mon_livre.get_nb_pages())
