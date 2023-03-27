@@ -1,31 +1,35 @@
-class Produit:
-    def __init__(self, nom, prixHT, TVA):
+class Student:
+    def __init__(self, nom, prenom, num_etudiant, credits=0):
         self.nom = nom
-        self.prixHT = prixHT
-        self.TVA = TVA
-    def changer_nom(self, nom):
-        self.nom = nom
-    def changer_prix(self, prixHT):
-        self.prixHT = prixHT
-    def nom_produit(self):
-        return self.nom
-    def prixHT_produit(self):
-        return self.prixHT
-    def TVA_produit(self):
-        return self.TVA
-    def CalculerPrixTTC(self):
-        prixTTC = self.prixHT + (self.prixHT * self.TVA)
-        return prixTTC
-    def afficher(self):
-        liste_produit = (self.nom, self.prixHT, str(self.TVA), self.CalculerPrixTTC())
-        return liste_produit
-patate= Produit('patate', 10, 0.20)
-ps5 = Produit('PS5', 400, 0.20)
-tele = Produit('télé', 250, 0.20)
-print(patate.afficher())
-print(ps5.afficher())
-print(tele.afficher())
-print(patate.nom_produit())
-print(str(patate.prixHT_produit())+'€ HT')
-print(str(patate.TVA_produit()*100)+'%','TVA')
-print(str(patate.CalculerPrixTTC())+ '€ TTC\n')
+        self.prenom = prenom
+        self.num_etudiant = num_etudiant
+        self.credits = credits
+        self.level = self.__studentEval()
+
+    def add_credits(self, credits):
+        if credits > 0:
+            self.credits += credits
+            self.level = self.__studentEval()
+
+    def __studentEval(self):
+        if self.credits >= 90:
+            return "Excellent"
+        elif self.credits >= 80:
+            return "Très bien"
+        elif self.credits >= 70:
+            return "Bien"
+        elif self.credits >= 60:
+            return "Passable"
+        else:
+            return "Insuffisant"
+
+    def studentInfo(self):
+        print("Nom: ", self.nom)
+        print("Prénom: ", self.prenom)
+        print("ID: ", self.num_etudiant)
+        print("Niveau: ", self.level)
+john_doe = Student("John", "Doe", 145)
+john_doe.add_credits(20)
+john_doe.add_credits(40)
+john_doe.add_credits(30)
+john_doe.studentInfo()
