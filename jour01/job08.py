@@ -26,34 +26,35 @@ class Livre:
         else:
             print("Erreur! le nombre de pages doit être un entier positif.")
     
-    def get_disponible(self):
-        return self.disponible
-    
     def verification(self):
         return self.disponible
     
     def emprunter(self):
-        if self.disponible:
+        if self.verification():
             self.disponible = False
             print("Le livre a été emprunté.")
         else:
-            print("Le livre n'est pas disponible.")
+            print("Le livre n'est pas disponible pour le moment.")
+    
+    def rendre(self):
+        if not self.verification():
+            self.disponible = True
+            print("Le livre a été rendu.")
+        else:
+            print("Le livre n'a pas été emprunté auparavant.")
 
-
-mon_livre = Livre("Get Riche", "Tolkien", 1137)
-
+mon_livre = Livre("Harry Potter à l'école des sorciers", " Rowling", 300)
 
 print("Titre :", mon_livre.get_titre())
 print("Auteur :", mon_livre.get_auteur())
 print("Nombre de pages :", mon_livre.get_nb_pages())
 
 
-mon_livre.set_titre("Le hobbit")
-mon_livre.set_nb_pages(300)
+mon_livre.set_nb_pages(-50)
 
 
-print("Titre modifié :", mon_livre.get_titre())
-print("Nombre de pages modifié :", mon_livre.get_nb_pages())
+mon_livre.set_nb_pages(400)
+print("Nouveau nombre de pages :", mon_livre.get_nb_pages())
 
 
 print("Le livre est disponible :", mon_livre.verification())
@@ -62,4 +63,10 @@ print("Le livre est disponible :", mon_livre.verification())
 mon_livre.emprunter()
 
 
-print("Le livre est disponible :", mon_livre.verification())
+mon_livre.emprunter()
+
+
+mon_livre.rendre()
+
+
+mon_livre.rendre()
