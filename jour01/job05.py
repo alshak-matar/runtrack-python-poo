@@ -1,43 +1,21 @@
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        
-        
-        
-    def displaypoints(self):
-        print(str(self.x)+', '+str(self.y))
+class Animal:
+    def __init__(self):
+        self.age = 0
+        self.pernom = ""
+    
+    def vieillir(self,):
+        self.age += 1
 
-    def displayX(self):
-        print(self.x)
-        
-        
-        
-        
-        
-    def displayY(self):
-        print(self.y)
-        
-        
-        
-        
-    def replayceX(self, x):
-        self.x = x
-        print(self.x)
-        
-        
-        
-        
-        
-    def replayceY(self, y):
-        self.y = y
-        print(self.y)
+    def nommer(self,nom):
+        self.nom = nom
 
-        
-        
-note = Point(21, 11)
-note.displaypoints()
-note.displayX()
-note.displayY()
-note.replayceX(35)
-note.replayceY(34)
+
+mon_animal = Animal()
+print("L'age de l'animal ", mon_animal.age)
+
+mon_animal.vieillir()
+print("L'age de l'animal ", mon_animal.age)
+
+mon_animal.nommer("Luna")
+print("L'animal se nomme ", mon_animal.nom)
+
