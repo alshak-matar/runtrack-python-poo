@@ -1,31 +1,33 @@
-class Rectangle:
-    def __init__(self, longueur, largeur):
-        self.longueur = longueur
-        self.largeur = largeur
+class Personne:
+    def __init__(self, age=14):
+        self.age = age
+    
+    def afficherAge(self):
+        print("J'ai", self.age, "ans")
+    
+    def bonjour(self):
+        print("Hello")
+    
+    def modifierAge(self, new_age):
+        self.age = new_age
 
-    def __setLongeur(self):
-        self.longueur = input('entrer une longeur: ')
-        return self.longueur
+class Eleve(Personne):
+    def allerEnCours(self):
+        print("Je vais en cours")
+    
+    def affichageAge(self):
+        print("J'ai", self.age, "ans")
 
-    def getLongeur(self):
-        self.__setLongeur()
+class Professeur(Personne):
+    def __init__(self, age, matiereEnseignee):
+        super().__init__(age)
+        self.matiereEnseignee = matiereEnseignee
+    
+    def enseigner(self):
+        print("Le cours va commencer")
 
-    def __setLargeur(self):
-        self.largeur = input('Entrer une largeur : ')
-        return self.largeur
+p = Personne()
+p.afficherAge()
 
-    def getLargeur(self):
-        self.__setLargeur()
-
-    def AfficherLongeur(self):
-        return self.longueur
-
-    def AfficherLargeur(self):
-        return self.largeur
-rectangle = Rectangle(10,5)
-print('la longeur est de',rectangle.AfficherLongeur())
-print('La largeur est de', rectangle.AfficherLargeur())
-rectangle.getLongeur()
-rectangle.getLargeur()
-print('la longeur est de',rectangle.AfficherLongeur())
-print('La largeur est de', rectangle.AfficherLargeur())
+e = Eleve()
+e.afficherAge()
